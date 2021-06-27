@@ -26,3 +26,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::resource('admin/users', 'App\Http\Controllers\AdminUsersController');
+
+// Route::post('/admin/users/create', [App\Http\Controllers\AdminUsersController::class, 'store'])->name('users.store');
+
+// Route::resource('admin/users/create', 'App\Http\Controllers\AdminUsersController');
