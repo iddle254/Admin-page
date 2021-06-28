@@ -16,12 +16,12 @@
                         <tr>
                           <th>Id</th>
                           <th>Name</th>
+                          <th>Photo</th>
                           <th>Email</th>
                           <th>Role</th>
                           <th>Status</th>                            
                           <th>Created At</th>
-                          <th>Updated at</th>
-                          
+                          <th>Updated at</th>                                                   
                           
                         </tr>
                       </thead>
@@ -29,12 +29,12 @@
                         <tr>
                           <th>Id</th>
                           <th>Name</th>
+                          <th>Photo</th>
                           <th>Email</th>
                           <th>Role</th>
                           <th>Status</th>                            
                           <th>Created At</th>
-                          <th>Updated at</th>
-                          
+                          <th>Updated at</th>                                                   
                           
                         </tr>
                       </tfoot>
@@ -46,7 +46,10 @@
                               {{$user->id}}
                             </td>
                             <td>
-                              {{$user->name}}
+                              <a href="{{route('users.edit', $user->id)}} ">{{$user->name}}</a>                              
+                            </td>
+                            <td>
+                              <img height="50" src="{{$user->photo ? $user->photo->file : "http://placehold.it/400x400"}}" alt="No user photo">                              
                             </td>
                             <td>
                                 {{$user->email}}

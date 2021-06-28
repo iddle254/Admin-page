@@ -9,4 +9,10 @@ class Photo extends Model
 {
     use HasFactory;
     protected $guarded = [];
+    protected $uploads = '/images/';
+
+    public function getFileAttribute($photo)
+    {
+        return $this->uploads.$photo;
+    }
 }
