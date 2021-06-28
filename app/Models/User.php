@@ -16,8 +16,7 @@ class User extends Authenticatable
      *
      * @var array
      */
-    protected $guarded = [
-    ];
+    protected $guarded = [];
 
     /**
      * The attributes that should be hidden for arrays.
@@ -40,5 +39,10 @@ class User extends Authenticatable
 
     public function role(){
         return $this->belongsTo('App\Models\Role');
+    }
+
+    public function photo()
+    {
+        return $this->belongsTo('App\Models\Photo');
     }
 }
