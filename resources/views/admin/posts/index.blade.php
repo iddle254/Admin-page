@@ -2,9 +2,13 @@
 
 @section('content')
 <div class="row">
+    
   @if (Session::has('post-created-message'))
-    <p class="bg-alert">{{session('post-created-message')}} </p>
-@endif
+  <p class="bg-success">{{session('post-created-message')}} </p> 
+  @else
+  <p class="bg-danger">{{session('post_deleted')}} </p>  
+  @endif
+
 </div>
     <div class="container-fluid">
     
@@ -54,17 +58,19 @@
                             {{$post->id}}
                           </td>
                           <td>
+                            <a href="{{route('posts.edit', $post->id)}} ">
                             {{$post->user->name}}
+                          </a>
                           </td>
                           <td>
-                            {{$post->category_id}}
+                            {{$post->category ? $post->category->name : "Uncategorized"}}
                           </td>
                           
                           <td>
                             {{$post->title}}
                           </td>
                           <td>
-                            {{$post->body}}
+                            {{Str::limit($post->body, 20, '...')}}
                           </td>
                           <td>
                             {{$post->created_at->diffForHumans()}}
