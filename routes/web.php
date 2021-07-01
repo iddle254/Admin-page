@@ -22,14 +22,16 @@ Auth::routes();
 
 Route::middleware('admin')->group(function ()
 {
-    Route::resource('admin/users', 'App\Http\Controllers\AdminUsersController');
-
-    Route::resource('admin/posts', 'App\Http\Controllers\AdminPostsController');
-
-    Route::get('/admin', function () {
-        return view('admin.index');
-    });
+    Route::resource('admin/users', 'App\Http\Controllers\AdminUsersController'); 
+   
 });
+
+
+Route::get('/admin', function () {
+    return view('admin.index');
+});
+
+Route::resource('admin/posts', 'App\Http\Controllers\AdminPostsController');
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
